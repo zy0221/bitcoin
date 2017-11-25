@@ -43,6 +43,14 @@ const entry = (function () {
         entries[item.ids] = item.path;
     })
     entries.common = [
+        'react',
+        'react-dom',
+        'redux',
+        'redux-thunk',
+        './app/less/base/index.less',
+        'jquery'
+    ]
+    entries.base = [
         'es5-shim',
         'es5-shim/es5-sham',
         'es6-promise',
@@ -50,13 +58,6 @@ const entry = (function () {
         'fetch-detector',
         'fetch-ie8',
         'fetch-jsonp',
-        'react',
-        'react-dom',
-        'redux',
-        'redux-thunk',
-        './app/less/base/index.less',
-    ]
-    entries.base = [
         './app/base/index',
     ]
     return entries;
@@ -113,6 +114,10 @@ const webpackModule = {
             query: {
                 name: '[path][name].[ext]',
             },
+        },
+        {
+            test: require.resolve("jquery"),
+            loader: "expose-loader?$!expose-loader?jQuery"
         },
     ],
 };
