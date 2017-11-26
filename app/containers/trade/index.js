@@ -64,7 +64,7 @@ App.PropTypes = {
 
 function mapStateToProps(state) {
     return {
-        count: state.count
+        count: state.app.count
     }
 }
 

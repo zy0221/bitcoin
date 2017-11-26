@@ -1,0 +1,35 @@
+@import "../../less/base/variable";
+
+.bt-page-user-login{
+  width: 280px;
+  margin: 0 auto;
+  padding-top: 120px;
+  .logo{
+    height: 120px;
+    color: @bt-color-main;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .tag-container{
+    width: 200px;
+    margin: 0 auto;
+    .panel-tag{
+      float: left;
+      width: 50%;
+      text-align: center;
+      span{
+        display: inline-block;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 10px;
+        color: @bt-color-text-dark;
+        cursor: pointer;
+      }
+      &.active span{
+        border-bottom: 2px solid @bt-color-main;
+      }
+    }
+  }
+
+}

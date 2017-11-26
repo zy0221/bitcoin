@@ -19,9 +19,10 @@ function getAllFiles(dir, ids = []) {
             const filePath = path.resolve(dir, filename);
             const fileStat = fs.statSync(filePath);
             if(fileStat.isFile()){
-                ids.push(filename.split('.')[0]);
+                const curIds = ids.slice(0);
+                curIds.push(filename.split('.')[0]);
                 ret.push({
-                    ids: ids.join('_'),
+                    ids: curIds.join('_'),
                     path: filePath
                 });
             }else if(fileStat.isDirectory()){
@@ -48,7 +49,6 @@ const entry = (function () {
         'redux',
         'redux-thunk',
         './app/less/base/index.less',
-        'jquery'
     ]
     entries.base = [
         'es5-shim',
@@ -58,7 +58,6 @@ const entry = (function () {
         'fetch-detector',
         'fetch-ie8',
         'fetch-jsonp',
-        './app/base/index',
     ]
     return entries;
 })();

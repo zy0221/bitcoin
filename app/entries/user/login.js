@@ -9,9 +9,9 @@ import createStore from '../../utils/createStore';
 
 import { baseStart, baseReducer, baseStore } from '../../base/index';
 
-import reducer from '../../reducer/trade/index';
-import initialState from '../../store/trade/index';
-import App from '../../containers/trade/index';
+import reducer from '../../reducer/user/login';
+import initialState from '../../store/user/login';
+import App from '../../containers/user/login';
 
 
 

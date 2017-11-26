@@ -4,10 +4,17 @@
 import NetServer from '../utils/NetServer';
 
 const netServer = new NetServer();
-netServer.checkoutLogin = function (query) {
-    return this.getData('/index.html', query, {}).then((data)=>{
-        return data;
+netServer.getBaseInfo = function (query) {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve({
+                userName : 'zhangyan'
+            })
+        }, 1000)
     })
+    /*return this.getData('/index.html', query, {}).then((data)=>{
+        return data;
+    })*/
 }
 
 export default netServer;
