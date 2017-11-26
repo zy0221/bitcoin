@@ -81,14 +81,19 @@ class component extends Component {
     }
     userNameCheck(eventName){
         let sCheck = false;
+        // 不能输入空
         const value = this.refs.userName.value.toString().trim();
-
-        if(eventName === 'INPUT' && value !== this.state.userName){
-            this.setState({
-                userName: value
-            })
-            if(this.state.userNameError){
-                sCheck = true;
+        console.log(1,value);
+        console.log(2,this.state.userName);
+        console.log(value !== this.state.userName);
+        if(eventName === 'INPUT'){
+            if(value !== this.state.userName){
+                this.setState({
+                    userName: value
+                })
+                if(this.state.userNameError){
+                    sCheck = true;
+                }
             }
         }else {
             sCheck = true;
@@ -109,12 +114,14 @@ class component extends Component {
     passwordCheck(eventName){
         let sCheck = false;
         const value = this.refs.password.value.toString().trim();
-        if(eventName === 'INPUT' && value !== this.state.password){
-            this.setState({
-                password: value.slice(0,16)
-            })
-            if(this.state.passwordError){
-                sCheck = true;
+        if(eventName === 'INPUT'){
+            if(value !== this.state.password){
+                this.setState({
+                    password: value.slice(0,16)
+                })
+                if(this.state.passwordError){
+                    sCheck = true;
+                }
             }
         }else {
             sCheck = true;

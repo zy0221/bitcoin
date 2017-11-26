@@ -104,7 +104,7 @@ class component extends Component {
                 this.altMsg.success('注册成功，即将跳转到登录页');
                 setTimeout(()=>{
                     window.location.href = ROUTER.USER_LOGIN;
-                }, 2000);
+                }, 3000);
             }).catch((e) => {
                 e && this.altMsg.error(e.message);
             });
@@ -114,12 +114,14 @@ class component extends Component {
         let sCheck = false;
         const value = this.refs.userName.value.toString().trim();
 
-        if(eventName === 'INPUT' && value !== this.state.userName){
-            this.setState({
-                userName: value
-            })
-            if(this.state.userNameError){
-                sCheck = true;
+        if(eventName === 'INPUT'){
+            if(value !== this.state.userName){
+                this.setState({
+                    userName: value
+                })
+                if(this.state.userNameError){
+                    sCheck = true;
+                }
             }
         }else {
             sCheck = true;
@@ -141,12 +143,14 @@ class component extends Component {
         let sCheck = false;
         const value = this.refs.email.value.toString().trim();
 
-        if(eventName === 'INPUT' && value !== this.state.email){
-            this.setState({
-                email: value
-            })
-            if(this.state.emailError){
-                sCheck = true;
+        if(eventName === 'INPUT'){
+            if(value !== this.state.email){
+                this.setState({
+                    email: value
+                })
+                if(this.state.emailError){
+                    sCheck = true;
+                }
             }
         }else {
             sCheck = true;
@@ -167,13 +171,16 @@ class component extends Component {
     passwordCheck(eventName){
         let sCheck = false;
         const value = this.refs.password.value.toString().trim();
-        if(eventName === 'INPUT' && value !== this.state.password){
-            this.setState({
-                password: value.slice(0,16)
-            })
-            if(this.state.passwordError){
-                sCheck = true;
+        if(eventName === 'INPUT'){
+            if(value !== this.state.password){
+                this.setState({
+                    password: value.slice(0,16)
+                })
+                if(this.state.passwordError){
+                    sCheck = true;
+                }
             }
+
         }else {
             sCheck = true;
         }
@@ -193,12 +200,14 @@ class component extends Component {
     passwordSecondCheck(eventName){
         let sCheck = false;
         const value = this.refs.passwordSecond.value.toString().trim();
-        if(eventName === 'INPUT' && value !== this.state.passwordSecond){
-            this.setState({
-                passwordSecond: value.slice(0,16)
-            })
-            if(this.state.passwordSecondError){
-                sCheck = true;
+        if(eventName === 'INPUT'){
+            if(value !== this.state.passwordSecond){
+                this.setState({
+                    passwordSecond: value.slice(0,16)
+                })
+                if(this.state.passwordSecondError){
+                    sCheck = true;
+                }
             }
         }else {
             sCheck = true;
