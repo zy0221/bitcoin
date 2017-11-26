@@ -1,7 +1,27 @@
 @import "../../less/base/variable";
 
 .bt-com-user-login{
-  input[type='text']{
-    padding-left: 40px;
+  .item-field{
+    margin-top: 20px;
+    position: relative;
+    .input-icon{
+      position: absolute;
+      width: 40px;
+      height: 42px;
+      line-height: 42px;
+      text-align: center;
+      color: @bt-color-text-black-light;
+    }
+    input[type='text'],input[type='password']{
+      width: 100%;
+      padding-left: 40px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+    button{
+      width: 100%;
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
 }

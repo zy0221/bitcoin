@@ -1,9 +1,14 @@
 /**
  * Created by zy on 2017/11/26.
  * 暂时不必要封装一层表单组件， 手动验证
+ * passwordCheck 可以用高阶组件， 也懒得搞了
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cs from 'classnames';
+import ROUTER from '../../constants/router'
+import NET_STATUS from '../../constants/netStatus';
+import AlertContainer from '../../components/common/react-alert/AlertContainer'
 
 
 import './login.less'
@@ -16,45 +21,114 @@ class component extends Component {
             password: '',
             passwordError: '',
         }
+        this.userNameCheck = this.userNameCheck.bind(this);
+        this.passwordCheck = this.passwordCheck.bind(this);
         this.submitClick = this.submitClick.bind(this);
     }
     render(){
         return (<div className="bt-com-user-login">
-            <input ref="userName" name="userName" type="text"/>
-            <i className="bt-ic-user"></i>
-            <input type="checkbox"/>
-            <input name="aaa" type="radio"/><input name="aaa" type="radio"/>
-            <textarea>
-
-            </textarea>
-            <div>
-                <label>
-                    aaag<input type="checkbox"/>
-                </label>
-                <label>
-                    bbbg<input type="checkbox"/>
-                </label>
-                <label>
-                    cccg<input name="ccc" type="radio"/><input name="ccc" type="radio"/>
-                </label>
+            <AlertContainer ref={a => this.altMsg = a}/>
+            <div className="item-field">
+                <div className="input-icon">
+                    <i className="bt-ic-mail3"></i>
+                </div>
+                <input value={this.state.userName} type="text"
+                       name="userName" ref="userName" placeholder="用户名/邮箱"
+                       onChange={this.userNameCheck.bind(this, 'INPUT')}
+                       onBlur={this.userNameCheck.bind(this, 'BLUR')}/>
+                {(this.state.userNameError ) ? <div className="bt-form-item-error">
+                    {this.state.userNameError}
+                </div>: null}
             </div>
-
-
-            <button className="bt-btn" onClick={this.submitClick}>submit</button>
-            <button className="bt-btn bt-btn-info">submit</button>
-            <button className="bt-btn bt-btn-info bt-btn-disabled">submit</button>
-            <a>link</a>
+            <div className="item-field">
+                <div className="input-icon">
+                    <i className="bt-ic-lock"></i>
+                </div>
+                <input value={this.state.password} type="password"
+                       name="password" ref="password" placeholder="密码"
+                       onChange={this.passwordCheck.bind(this, 'INPUT')}
+                       onBlur={this.passwordCheck.bind(this, 'BLUR')}/>
+                {(this.state.passwordError ) ? <div className="bt-form-item-error">
+                    {this.state.passwordError}
+                </div>: null}
+            </div>
+            <div className="item-field">
+                <button onClick={this.submitClick} className={cs({
+                    "bt-btn": true,
+                    "bt-btn-info": true,
+                    "bt-btn-waiting": this.submitDisable()
+                })}>登录</button>
+            </div>
         </div>)
     }
+    submitDisable(){
+        return this.props.netstatus === NET_STATUS.DOING;
+    }
     submitClick(){
-        this.props.onLogin({
-            userName: 'zhangyan',
-            password: '12345'
-        }).then(() => {
-            console.log('callcak1')
-        }).catch((e) => {
-            console.log('callcak')
-        });
+        if(this.submitDisable()){
+            return;
+        }
+        if(!this.userNameCheck() && !this.passwordCheck()){
+            this.props.onLogin({
+                userName: this.state.userName,
+                password: this.state.password
+            }).then(() => {
+                window.location.href = ROUTER.INDEX;
+            }).catch((e) => {
+                e && this.altMsg.error(e.message);
+            });
+        }
+    }
+    userNameCheck(eventName){
+        let sCheck = false;
+        const value = this.refs.userName.value.toString().trim();
+
+        if(eventName === 'INPUT' && value !== this.state.userName){
+            this.setState({
+                userName: value
+            })
+            if(this.state.userNameError){
+                sCheck = true;
+            }
+        }else {
+            sCheck = true;
+        }
+        let eMsg = ''
+        if(sCheck){
+            if(value === ''){
+                eMsg = "用户名/邮箱不能为空"
+            }else if(value.indexOf('@') === -1 && value.length > 10){
+                eMsg = "用户名/邮箱格式不正确"
+            }
+            this.setState({
+                userNameError: eMsg
+            })
+        }
+        return eMsg;
+    }
+    passwordCheck(eventName){
+        let sCheck = false;
+        const value = this.refs.password.value.toString().trim();
+        if(eventName === 'INPUT' && value !== this.state.password){
+            this.setState({
+                password: value.slice(0,16)
+            })
+            if(this.state.passwordError){
+                sCheck = true;
+            }
+        }else {
+            sCheck = true;
+        }
+        let eMsg = ''
+        if(sCheck){
+            if(value === ''){
+                eMsg = "密码不能为空"
+            }
+            this.setState({
+                passwordError: eMsg
+            })
+        }
+        return eMsg;
     }
 }
 

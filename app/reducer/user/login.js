@@ -15,6 +15,15 @@ function reducer(state = '', action = {}) {
             return Object.assign({}, state, {
                 loginStatus: NET_STATUS.FAIL
             })
+        case ACTION_NAME.REGISTER_REQUEST:{
+            return Object.assign({}, state, {
+                registerStatus: NET_STATUS.DOING
+            })
+        }
+        case ACTION_NAME.REGISTER_FAIL:
+            return Object.assign({}, state, {
+                registerStatus: NET_STATUS.FAIL
+            })
         default:
             return state
     }

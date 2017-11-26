@@ -5,27 +5,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cs from 'classnames';
+import AlertContainer from '../../components/common/react-alert/AlertContainer'
+import ModalContainer from '../../components/common/react-modal/react-modal';
 
-import urlUtils from '../../utils/urlUtils';
 import { ACTION_FUNCS } from '../../actions/user/login';
-import Login from '../../components/user/login';
-import Register from '../../components/user/register'
+import Login from '../../components/user/login'
 import './login.less'
-
-
-const queryParams = urlUtils.getQueryParams();
-
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tag: queryParams.action === 'register' ? 'REGISTER' : 'LOGIN'
+            tag: 'LOGIN'
         }
         this.tagChange = this.tagChange.bind(this);
     }
     render(){
         return (<div className="bt-page-user-login">
+            <ModalContainer ref={a => this.modal = a} title="">
+                <Login onLogin={this.props.login} netstatus={this.props.loginStatus}></Login>
+            </ModalContainer>
+            <AlertContainer ref={a => this.msg = a}/>
             <div className="logo">LOGO</div>
             <div className="tag-container bt-float-clear">
                 <div className={cs({
@@ -37,21 +37,19 @@ class App extends Component {
                     "active": this.state.tag === 'REGISTER'
                 })}><span onClick={this.tagChange.bind(this, 'REGISTER')}>注册</span></div>
             </div>
+
             {(this.state.tag === 'LOGIN')
                 ? <Login onLogin={this.props.login} netstatus={this.props.loginStatus}></Login>
-                : null
-            }
-            {(this.state.tag === 'REGISTER')
-                ? <Register onRegister={this.props.register} netstatus={this.props.registerStatus}></Register>
                 : null
             }
         </div>)
     }
     tagChange(tag){
+        this.modal.show();
+        // this.msg.success('Some text or component');
         this.state.tag = tag;
         this.setState(this.state);
     }
-
 }
 
 App.PropTypes = {
@@ -66,10 +64,8 @@ function mapStateToProps(state) {
     }
 }
 
-// 内部ActionCreators.apply
 const mapActionCreators = {
     login: (arg) => ACTION_FUNCS.login(arg),
-    register: (arg) => ACTION_FUNCS.register(arg),
 }
 
 

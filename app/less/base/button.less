@@ -1,5 +1,5 @@
-@import "../variable";
-@import "../utils";
+@import "variable";
+@import "utils";
 
 
 .bt-btn {
@@ -43,9 +43,17 @@
 .bt-btn-disabled{
   cursor: not-allowed;
   &,&:hover,&:active{
-    border: @bt-color-border;
-    background: @bt-color-bg-grey;
+    border: 1px solid @bt-color-border;
+    background: @bt-color-bg-grey-light;
     color: @bt-color-text-grey;
+  }
+}
 
+.bt-btn-waiting{
+  cursor: wait;
+  &,&:hover,&:active{
+    border: 1px solid @bt-color-border;
+    background: @bt-color-bg-grey-light;
+    color: @bt-color-text-grey;
   }
 }
