@@ -1,0 +1,51 @@
+@import "../variable";
+@import "../utils";
+
+
+.bt-btn {
+  .inline-block;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 7px 12px;
+  border: 1px solid @bt-color-border;
+  color: @bt-color-text-black;
+  background-color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+  outline: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    border-color: @bt-color-main;
+    color: @bt-color-main;
+  }
+  &:active {
+    border-color: darken(@bt-color-main, 11%);
+    color: darken(@bt-color-main, 11%);
+  }
+}
+
+.bt-btn-info {
+  border: 1px solid lighten(@bt-color-main, 11%);
+  background-color: @bt-color-main;
+  color: @bt-color-text-white;
+  &:hover {
+    background-color: darken(@bt-color-main, 6%);
+    color: @bt-color-text-white;
+  }
+  &:active {
+    background-color: darken(@bt-color-main, 11%);
+    color: @bt-color-text-white;
+  }
+}
+
+.bt-btn-disabled{
+  cursor: not-allowed;
+  &,&:hover,&:active{
+    border: @bt-color-border;
+    background: @bt-color-bg-grey;
+    color: @bt-color-text-grey;
+
+  }
+}

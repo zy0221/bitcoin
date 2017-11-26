@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'icommon';
+  src:  url('fonts/icommon.eot?w8oh0d');
+  src:  url('fonts/icommon.eot?w8oh0d#iefix') format('embedded-opentype'),
+    url('fonts/icommon.ttf?w8oh0d') format('truetype'),
+    url('fonts/icommon.woff?w8oh0d') format('woff'),
+    url('fonts/icommon.svg?w8oh0d#icommon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="bt-ic-"], [class*=" bt-ic-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icommon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bt-ic-bell:before {
+  content: "\e951";
+}
+.bt-ic-user:before {
+  content: "\e971";
+}
+.bt-ic-spinner3:before {
+  content: "\e97c";
+}
+.bt-ic-lock:before {
+  content: "\e98f";
+}
+.bt-ic-cross:before {
+  content: "\ea0f";
+}
+.bt-ic-checkmark:before {
+  content: "\ea10";
+}
+.bt-ic-backward2:before {
+  content: "\ea1f";
+}
+.bt-ic-forward3:before {
+  content: "\ea20";
+}
+.bt-ic-first:before {
+  content: "\ea21";
+}
+.bt-ic-last:before {
+  content: "\ea22";
+}
+.bt-ic-previous2:before {
+  content: "\ea23";
+}
+.bt-ic-next2:before {
+  content: "\ea24";
+}
+.bt-ic-arrow-up2:before {
+  content: "\ea3a";
+}
+.bt-ic-arrow-right2:before {
+  content: "\ea3c";
+}
+.bt-ic-arrow-down2:before {
+  content: "\ea3e";
+}
+.bt-ic-arrow-left2:before {
+  content: "\ea40";
+}
+.bt-ic-mail3:before {
+  content: "\ea85";
+}

@@ -96,11 +96,11 @@ const webpackModule = {
             ),
         },
         {
-            test: /\.json$/,
+            test: /\.json/,
             loader: 'json-loader',
         },
         {
-            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)/,
             loader: 'url-loader',
             query: {
                 name: '[path][name].[ext]',
@@ -108,7 +108,7 @@ const webpackModule = {
             },
         },
         {
-            test: /\.(eot|ttf|wav|mp3|ogg)$/,
+            test: /\.(eot|ttf|wav|mp3|ogg)/,
             loader: 'file-loader',
             query: {
                 name: '[path][name].[ext]',
