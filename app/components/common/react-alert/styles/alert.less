@@ -1,0 +1,113 @@
+@import "../../../../less/base/utils";
+.bt-com-react-alerts {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin: 14px;
+  z-index: 999999;
+
+  .alert.hidden {
+    display: none;
+  }
+
+  .scale-enter {
+    transform: scale(0)
+  }
+
+  .scale-enter.scale-enter-active {
+    transform: scale(1);
+    transition: all 250ms cubic-bezier(0, 0, 0.5, 1.5);
+  }
+
+  .scale-leave {
+    transform: scale(1);
+  }
+
+  .scale-leave.scale-leave-active {
+    transform: scale(0);
+    transition: all 250ms ease-in-out;
+  }
+
+  .fade-enter {
+    opacity: 0.1;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: all 250ms ease-out;
+  }
+
+  .fade-leave {
+    opacity: 1;
+  }
+
+  .fade-leave.fade-leave-active {
+    opacity: 0.1;
+    transition: all 250ms ease-in;
+  }
+
+  .alert {
+    width: 320px;
+    min-height: 50px;
+    margin: 10px 0 0 0;
+    border-radius: 2px;
+    background-color: #333;
+    font-size: 11px;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
+    .float-clear();
+    .content {
+      float: left;
+      &.icon {
+        width: 50px;
+        height: 50px;
+        div {
+          width: 100%;
+          height: 100%;
+          background-position: 50%;
+          background-repeat: no-repeat;
+          &.info-icon {
+            background-image: url('../img/info.png');
+          }
+          &.error-icon {
+            background-image: url('../img/error.png');
+          }
+          &.success-icon {
+            background-image: url('../img/success.png');
+          }
+        }
+      }
+      &.message{
+        width: 200px;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        padding: 15px 10px;
+      }
+      &.close{
+        width: 50px;
+        background-color: #444;
+        border-radius: 0 2px 2px 0;
+        line-height: 50px;
+        cursor: pointer;
+        .close-light{
+          background-image:url('../img/close-light.png');
+          width:100%;
+          height:100%;
+          background-position: 50%;
+          background-repeat: no-repeat;
+        }
+        .close-dark{
+          background-image:url('../img/close-dark.png');
+          width:100%;
+          height:100%;
+          background-position: 50%;
+          background-repeat: no-repeat;
+        }
+        &:hover{
+          opacity:0.5;
+        }
+      }
+    }
+  }
+}

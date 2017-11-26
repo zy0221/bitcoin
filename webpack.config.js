@@ -96,6 +96,10 @@ const webpackModule = {
             ),
         },
         {
+            test: /\.styl$/,
+            loader: 'style!css!postcss!stylus'
+        },
+        {
             test: /\.json/,
             loader: 'json-loader',
         },

@@ -1,0 +1,82 @@
+@import "../../../less/base/variable";
+.bt-com-react-modal{
+  width: 0;
+  height: 0;
+
+  .scale-enter {
+    transform: scale(0)
+  }
+
+  .scale-enter.scale-enter-active {
+    transform: scale(1);
+    transition: all 250ms cubic-bezier(0, 0, 0.5, 1.5);
+  }
+
+  .scale-leave {
+    transform: scale(1);
+  }
+
+  .scale-leave.scale-leave-active {
+    transform: scale(0);
+    transition: all 50ms ease-in-out;
+  }
+
+  .fade-enter {
+    opacity: 0.1;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: all 250ms ease-out;
+  }
+
+  .fade-leave {
+    opacity: 1;
+  }
+
+  .fade-leave.fade-leave-active {
+    opacity: 0.1;
+    transition: all 50ms ease-in;
+  }
+
+
+  .cover{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(100,100,100,0.7);
+    .wrap{
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      top: 100px;
+      min-width: 300px;
+      transform: translate(-50%, 0%);
+      box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
+      background: @bt-color-bg-white;
+      .title{
+        height: 40px;
+        line-height: 40px;
+        background: @bt-color-bg-grey-light;
+        padding-left: 20px;
+        padding-right: 40px;
+      }
+      .close-btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: @bt-color-text-black-light;
+        i{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

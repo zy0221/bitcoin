@@ -28,10 +28,11 @@ function loginFail(payload) {
 function login(arg) {
     return (dispatch, getState) => {
         dispatch(loginRequest());
-        net.login(arg).then((data) => {
+        return net.login(arg).then((data) => {
             window.location.href = ROUTER.INDEX;
         }).catch((e) => {
-            dispatch(loginFail(e.message))
+            dispatch(loginFail(e.message));
+            throw e;
         })
     }
 }

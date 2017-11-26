@@ -1,8 +1,10 @@
 /**
  * Created by zy on 2017/11/26.
+ * 暂时不必要封装一层表单组件， 手动验证
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 
 import './login.less'
 class component extends Component {
@@ -41,13 +43,17 @@ class component extends Component {
             <button className="bt-btn" onClick={this.submitClick}>submit</button>
             <button className="bt-btn bt-btn-info">submit</button>
             <button className="bt-btn bt-btn-info bt-btn-disabled">submit</button>
+            <a>link</a>
         </div>)
     }
     submitClick(){
-        console.log(this.refs.userName)
         this.props.onLogin({
             userName: 'zhangyan',
             password: '12345'
+        }).then(() => {
+            console.log('callcak1')
+        }).catch((e) => {
+            console.log('callcak')
         });
     }
 }
