@@ -52,6 +52,7 @@ class component extends Component {
                     {this.state.passwordError}
                 </div>: null}
             </div>
+
             <div className="item-field">
                 <button onClick={this.submitClick} className={cs({
                     "bt-btn": true,
@@ -83,9 +84,6 @@ class component extends Component {
         let sCheck = false;
         // 不能输入空
         const value = this.refs.userName.value.toString().trim();
-        console.log(1,value);
-        console.log(2,this.state.userName);
-        console.log(value !== this.state.userName);
         if(eventName === 'INPUT'){
             if(value !== this.state.userName){
                 this.setState({
@@ -101,9 +99,9 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "用户名/邮箱不能为空"
+                eMsg = "请输入用户名/邮箱"
             }else if(value.indexOf('@') === -1 && value.length > 10){
-                eMsg = "用户名/邮箱格式不正确"
+                eMsg = "用户名/邮箱格式错误"
             }
             this.setState({
                 userNameError: eMsg
@@ -113,11 +111,11 @@ class component extends Component {
     }
     passwordCheck(eventName){
         let sCheck = false;
-        const value = this.refs.password.value.toString().trim();
+        const value = this.refs.password.value.toString().trim().slice(0,16);
         if(eventName === 'INPUT'){
             if(value !== this.state.password){
                 this.setState({
-                    password: value.slice(0,16)
+                    password: value
                 })
                 if(this.state.passwordError){
                     sCheck = true;
@@ -129,7 +127,7 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "密码不能为空"
+                eMsg = "请输入密码"
             }
             this.setState({
                 passwordError: eMsg

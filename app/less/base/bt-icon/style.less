@@ -1,19 +1,19 @@
 @import "variables";
 
 @font-face {
-  font-family: 'icommon';
-  src:  url('@{icomoon-font-path}/icommon.eot?w8oh0d');
-  src:  url('@{icomoon-font-path}/icommon.eot?w8oh0d#iefix') format('embedded-opentype'),
-    url('@{icomoon-font-path}/icommon.ttf?w8oh0d') format('truetype'),
-    url('@{icomoon-font-path}/icommon.woff?w8oh0d') format('woff'),
-    url('@{icomoon-font-path}/icommon.svg?w8oh0d#icommon') format('svg');
+  font-family: 'icomoon';
+  src:  url('@{icomoon-font-path}/icomoon.eot?otglds');
+  src:  url('@{icomoon-font-path}/icomoon.eot?otglds#iefix') format('embedded-opentype'),
+    url('@{icomoon-font-path}/icomoon.ttf?otglds') format('truetype'),
+    url('@{icomoon-font-path}/icomoon.woff?otglds') format('woff'),
+    url('@{icomoon-font-path}/icomoon.svg?otglds#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="bt-ic-"], [class*=" bt-ic-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icommon' !important;
+  font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -26,6 +26,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bt-ic-tri-down {
+  &:before {
+    content: @bt-ic-tri-down;
+  }
+}
+.bt-ic-tri-left {
+  &:before {
+    content: @bt-ic-tri-left;
+  }
+}
+.bt-ic-tri-right {
+  &:before {
+    content: @bt-ic-tri-right;
+  }
+}
+.bt-ic-tri-up {
+  &:before {
+    content: @bt-ic-tri-up;
+  }
+}
+.bt-ic-bit {
+  &:before {
+    content: @bt-ic-bit;
+  }
+}
+.bt-ic-dot {
+  &:before {
+    content: @bt-ic-dot;
+  }
+}
 .bt-ic-bell {
   &:before {
     content: @bt-ic-bell;
@@ -44,6 +74,11 @@
 .bt-ic-lock {
   &:before {
     content: @bt-ic-lock;
+  }
+}
+.bt-ic-blocked2 {
+  &:before {
+    content: @bt-ic-blocked2;
   }
 }
 .bt-ic-cross {
@@ -106,9 +141,24 @@
     content: @bt-ic-arrow-left2;
   }
 }
+.bt-ic-radio-checked2 {
+  &:before {
+    content: @bt-ic-radio-checked2;
+  }
+}
 .bt-ic-mail3 {
   &:before {
     content: @bt-ic-mail3;
+  }
+}
+.bt-ic-blocked {
+  &:before {
+    content: @bt-ic-blocked;
+  }
+}
+.bt-ic-radio-checked {
+  &:before {
+    content: @bt-ic-radio-checked;
   }
 }
 

@@ -1,0 +1,101 @@
+@import "../../../less/base/variable.less";
+
+.bt-com-header{
+  height: 160px;
+  line-height: 160px;
+  border-bottom:1px solid @bt-color-main;
+  color: @bt-color-text-grey;
+  .logo{
+    float: left;
+    font-size: 60px;
+    color: @bt-color-main;
+    font-weight: bold;
+  }
+  .menu{
+    float: left;
+    font-size: 20px;
+    margin-left: 60px;
+    cursor: pointer;
+    color: @bt-color-text-grey;
+    &:hover{
+      color: @bt-color-main;
+    }
+    &.active{
+      color: @bt-color-main;
+    }
+  }
+  .menu-right{
+    float: right;
+    font-size: 13px;
+    a{
+      margin-left: 30px;
+    }
+  }
+  .menu-right-user{
+    float: right;
+    font-size: 24px;
+    .item{
+      position: relative;
+      margin-left: 20px;
+      .value{
+        color: @bt-color-text-black;
+        font-size: 18px;
+        vertical-align: text-bottom;
+        position: relative;
+        top: -3px;
+      }
+      &.hover{
+        cursor: pointer;
+      }
+      &:hover{
+        .entries{
+          display: block;
+        }
+      }
+      .entries{
+        display: none;
+        position: absolute;
+        line-height: 20px;
+        top: 0;
+        right: 0;
+        padding-top: 30px;
+        width: 140px;
+        .panel{
+          background: #ffffff;
+          box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
+          border: 1px solid @bt-color-border;
+          padding: 0 20px;
+          position: relative;
+          &:before{
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid @bt-color-border;
+            border-left: 1px solid @bt-color-border;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            top: -5px;
+            right: 10px;
+            transform: rotate(45deg);
+            box-sizing: border-box;
+            background: #ffffff;
+          }
+          .entry{
+            cursor: pointer;
+            text-align: center;
+            color: @bt-color-bg-grey;
+            line-height: 50px;
+            font-size: 14px;
+            &:hover{
+              color: @bt-color-main;
+            }
+            &.upper{
+              border-bottom: 1px solid @bt-color-border;
+            }
+          }
+        }
+      }
+    }
+  }
+}

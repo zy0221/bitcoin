@@ -8,7 +8,8 @@ netServer.getBaseInfo = function (query) {
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             resolve({
-                userName : 'zhangyan'
+                userName : 'zhangyan',
+                btc: '0.0000287'
             })
         }, 1000)
     })

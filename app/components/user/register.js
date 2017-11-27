@@ -112,7 +112,7 @@ class component extends Component {
     }
     userNameCheck(eventName){
         let sCheck = false;
-        const value = this.refs.userName.value.toString().trim();
+        const value = this.refs.userName.value.toString().trim().slice(0,10);
 
         if(eventName === 'INPUT'){
             if(value !== this.state.userName){
@@ -129,9 +129,7 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "用户名不能为空"
-            }else if(value.length > 10){
-                eMsg = "用户名不能超过10位"
+                eMsg = "请输入用户名"
             }
             this.setState({
                 userNameError: eMsg
@@ -158,9 +156,9 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "邮箱不能为空"
+                eMsg = "请输入邮箱"
             }else if(value.indexOf('@') === -1){
-                eMsg = "邮箱格式不正确"
+                eMsg = "邮箱格式错误"
             }
             this.setState({
                 emailError: eMsg
@@ -170,11 +168,11 @@ class component extends Component {
     }
     passwordCheck(eventName){
         let sCheck = false;
-        const value = this.refs.password.value.toString().trim();
+        const value = this.refs.password.value.toString().trim().slice(0,16);
         if(eventName === 'INPUT'){
             if(value !== this.state.password){
                 this.setState({
-                    password: value.slice(0,16)
+                    password: value
                 })
                 if(this.state.passwordError){
                     sCheck = true;
@@ -187,9 +185,9 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "密码不能为空"
+                eMsg = "请输入密码"
             }else if(value.length < 6){
-                eMsg = "密码不能少于6位"
+                eMsg = "密码最少为6位"
             }
             this.setState({
                 passwordError: eMsg
@@ -199,11 +197,11 @@ class component extends Component {
     }
     passwordSecondCheck(eventName){
         let sCheck = false;
-        const value = this.refs.passwordSecond.value.toString().trim();
+        const value = this.refs.passwordSecond.value.toString().trim().slice(0,16);
         if(eventName === 'INPUT'){
             if(value !== this.state.passwordSecond){
                 this.setState({
-                    passwordSecond: value.slice(0,16)
+                    passwordSecond: value
                 })
                 if(this.state.passwordSecondError){
                     sCheck = true;
@@ -215,11 +213,11 @@ class component extends Component {
         let eMsg = ''
         if(sCheck){
             if(value === ''){
-                eMsg = "密码不能为空"
+                eMsg = "请输入密码"
             }else if(value.length < 6){
-                eMsg = "密码不能少于6位"
+                eMsg = "密码最少为6位"
             }else if(this.state.password && this.state.password !== value){
-                eMsg = "两次密码输入不同"
+                eMsg = "密码不一致"
             }
             this.setState({
                 passwordSecondError: eMsg

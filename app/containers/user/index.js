@@ -6,9 +6,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Header from '../../components/common/header/index';
 
-import { ACTION_FUNCS } from '../../actions/trade/index';
-
-
 
 class App extends Component {
     constructor(props) {
@@ -19,7 +16,7 @@ class App extends Component {
     render(){
         return (<div className="bt-layout-page">
             <Header></Header>
-            content
+            个人中心页
         </div>)
     }
 }

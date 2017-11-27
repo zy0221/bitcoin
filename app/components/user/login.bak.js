@@ -40,6 +40,24 @@ class component extends Component {
             </div>
 
 
+            <label className="bt-form-item">
+                <input type="checkbox"/><i className="bt-ic-checkmark"></i>你好
+            </label>
+            <label className="bt-form-item">
+                <input type="checkbox" disabled="true"/><i className="bt-ic-checkmark"></i>你好
+                <input type="checkbox" disabled="true" checked={true}/><i className="bt-ic-checkmark"></i>你好
+            </label>
+
+            <br/>
+            <label className="bt-form-item">
+                <input type="radio" name="11"/><i className="bt-ic-checkmark"></i>你好
+            </label>
+            <label className="bt-form-item">
+                <input type="radio" name="11"/><i className="bt-ic-checkmark"></i>你好
+            </label>
+
+
+
             <button className="bt-btn" onClick={this.submitClick}>submit</button>
             <button className="bt-btn bt-btn-info">submit</button>
             <button className="bt-btn bt-btn-info bt-btn-disabled">submit</button>
