@@ -1,4 +1,5 @@
 @import "../../../less/base/variable.less";
+@import "../../../less/base/utils";
 
 .bt-com-header{
   height: 160px;
@@ -65,22 +66,7 @@
           box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.3);
           border: 1px solid @bt-color-border;
           padding: 0 20px;
-          position: relative;
-          &:before{
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-top: 1px solid @bt-color-border;
-            border-left: 1px solid @bt-color-border;
-            border-right: 1px solid transparent;
-            border-bottom: 1px solid transparent;
-            top: -5px;
-            right: 10px;
-            transform: rotate(45deg);
-            box-sizing: border-box;
-            background: #ffffff;
-          }
+          .bt-fun-before-tri-top(@bt-color-border);
           .entry{
             cursor: pointer;
             text-align: center;

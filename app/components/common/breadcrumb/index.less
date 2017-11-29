@@ -1,0 +1,22 @@
+@import "../../../less/base/variable.less";
+
+.bt-com-breadcrumb{
+  span{
+    display: inline-block;
+    font-size: 18px;
+    line-height: 80px;
+    color: @bt-color-text-black-light;
+  }
+  .space{
+    margin: 0 8px;
+  }
+  .active{
+    color: @bt-color-main;
+  }
+  .clickable{
+    cursor: pointer;
+    &:hover{
+      color: @bt-color-main;
+    }
+  }
+}

@@ -9,7 +9,7 @@ import Breadcrumb from '../../components/common/breadcrumb/index';
 import ROUTER from '../../constants/router';
 import UserLeft from '../../components/user/index-left';
 
-import './index.less'
+import './settings.less'
 class App extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class App extends Component {
             name: '个人中心',
             url: ROUTER.USER_INDEX
         }, {
-            name: '账户信息',
+            name: '账户设置',
             url: ''
         }];
     }
@@ -29,7 +29,7 @@ class App extends Component {
             <Breadcrumb path={this.breadcrumbPath}></Breadcrumb>
             <div className="bt-layout-page-center">
                 <div className="user-page-container">
-                    <UserLeft curactive="1"></UserLeft>
+                    <UserLeft curactive="2"></UserLeft>
                     个人中心
                 </div>
 
